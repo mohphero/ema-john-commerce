@@ -1,0 +1,29 @@
+.shop-area {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 0px;
+}
+
+.product-area {
+  margin-top: 2rem;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+  margin-top: 30px;
+}
+
+.cart-area {
+  margin-top: 2rem;
+}
+
+.carts {
+  margin-top: 30px;
+}

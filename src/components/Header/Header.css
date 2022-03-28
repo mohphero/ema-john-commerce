@@ -1,0 +1,24 @@
+header {
+  background: #263238;
+  padding: 2rem 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.nav-area ul {
+  display: flex;
+}
+
+.nav-area ul li {
+  list-style: none;
+  margin-right: 2rem;
+}
+
+.nav-area ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  text-transform: uppercase;
+}
