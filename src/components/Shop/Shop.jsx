@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
@@ -31,10 +32,8 @@ function Shop() {
         </div>
         <div className="cart-area sticky">
             <div>
-                <h3>Cart</h3>
-            <div className='carts '>
-                <h4>Total Item Added to cart : {cart.length}</h4>
-            </div>
+                <h3 className='text-center'>Cart Summary</h3>
+                <Cart cart={cart}></Cart>
             </div>
         </div>
     </div>
