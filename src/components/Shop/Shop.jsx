@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
+import { addToDb } from '../Utility/FakeDB';
 import './Shop.css';
 
 function Shop() {
@@ -15,6 +16,7 @@ function Shop() {
   const handleAddToCart = (product) => {
       const newCart = [...cart, product];
       setCart(newCart);
+      addToDb(product.id);
   }
 
   return (
@@ -32,7 +34,7 @@ function Shop() {
         </div>
         <div className="cart-area sticky">
             <div>
-                <h3 className='text-center'>Cart Summary</h3>
+                <h3 className='text-center '>Cart Summary</h3>
                 <Cart cart={cart}></Cart>
             </div>
         </div>
