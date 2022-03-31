@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
-import { addToDb } from '../Utility/FakeDB';
+import { addToDb, getStoredCart } from '../Utility/FakeDB';
 import './Shop.css';
 
 function Shop() {
@@ -10,8 +10,41 @@ function Shop() {
   useEffect(()=>{
       fetch('products.json')
       .then(res => res.json())
-      .then(data => setProducts(data))
+      .then(data => {setProducts(data)})
   },[]);
+
+
+//   useEffect(()=>{
+//     console.log(products);
+//     const storedCart = getStoredCart();
+//     const saveCart = [];
+//     for(const id in storedCart){
+//         const addedProduct = products.find(product => product.id === id);
+//         if(addedProduct){
+//             const quantity = storedCart[id];
+//             addedProduct.quantity = quantity;
+//             console.log(addedProduct);
+//             saveCart.push(addedProduct)
+//         }
+
+//     }
+//     setCart(saveCart);
+//   }, [products]);
+
+  useEffect(()=>{
+      const storeProduct = getStoredCart();
+      const saveCart = [];
+      for ( const id in storeProduct){
+          const addedProduct = products.find(product => product.id === id);
+          if(addedProduct){
+              const quantity = storeProduct[id];
+              addedProduct.quantity = quantity;
+              saveCart.push(addedProduct);
+          }
+      }
+      setCart(saveCart)
+  },[products])
+
 
   const handleAddToCart = (product) => {
       const newCart = [...cart, product];
